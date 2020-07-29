@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>List Items</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <hr>
+        <div class="d-flex justify-content-between ">
+            <h3>List Items</h3>
+
+            <a href="{% url 'keys:create_items' %}" class="btn btn-outline-success">Create New Item</a>
+        </div>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>NO.#</th>
+                    <th>Registration No</th>
+                    <th>Name</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if items %} {% for item in items %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{item.reg_number}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.timestamp}}</td>
+                </tr>
+
+                {% endfor %} {% else %}
+                <p>No Item </p>
+                {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
